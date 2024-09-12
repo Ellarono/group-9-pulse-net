@@ -1,0 +1,34 @@
+{
+    "joblistings":[
+        {
+            "id":1,
+            "Title":"Software Engineer",
+            "description":"Develop and maintain software Apllictions",
+            "requirement":"Valid certification as a software Engineer"
+        },
+        {
+            "id":2,
+            "Title":"Security guard",
+            "description":"Provide security for people and property within the building",
+            "requirement":"KCSE certificate"
+        },
+        {
+            "id":3,
+            "Title":"Lawyer",
+            "description":"Provide legal advice on the running of the company",
+            "requirement":"Law degree"
+        },
+        {
+            "id":4,
+            "Title":"Software Engineer",
+            "description":"Develop and maintain software Apllictions",
+            "requirement":"Valid certification as a software Engineer"
+        },
+        {
+            "id":5,
+            "Title":"Software Engineer",
+            "description":"Develop and maintain software Apllictions",
+            "requirement":"Valid certification as a software Engineer"
+        }
+    ]
+}
