@@ -57,23 +57,12 @@
   ],
   "applications": [
     {
-      "id": "1",
-      "userId": 1,
-      "jobId": 1,
-      "name": "Daniella Rono",
+      "id": "5961",
+      "name": "Daniella Rono ",
       "email": "daniellarono@gmail.com",
-      "education": "Bachelor's in Computer Science",
-      "workExperience": "Interned at TechCompany for 6 months.",
-      "dateOfBirth": "2000-01-01",
-      "status": "submitted"
-    },
-    {
-      "id": "a22b",
-      "name": "Sandra",
-      "email": "daniellarono@gmail.com",
-      "education": "High School",
-      "workExperience": "15 years",
-      "dateOfBirth": "2222-02-02",
+      "education": "University ",
+      "workExperience": "12 years in 13's Tech firm ",
+      "dateOfBirth": "2002-02-02",
       "jobId": "1",
       "status": "submitted"
     }

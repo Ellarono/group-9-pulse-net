@@ -1,116 +1,71 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
-const EditApplication = () => {
-  const { applicationId } = useParams(); // Get application ID from URL
+function EditApplication() {
+  const { id } = useParams(); // Get the application ID from the URL
   const [application, setApplication] = useState(null);
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [education, setEducation] = useState('');
-  const [workExperience, setWorkExperience] = useState('');
-  const [dateOfBirth, setDateOfBirth] = useState('');
-  const [message, setMessage] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch the existing application data
-    fetch(`http://localhost:5001/applications/${applicationId}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setApplication(data);
-        setName(data.name);
-        setEmail(data.email);
-        setEducation(data.education);
-        setWorkExperience(data.workExperience);
-        setDateOfBirth(data.dateOfBirth);
-      })
-      .catch((error) => console.log('Error fetching application:', error));
-  }, [applicationId]);
+    // Fetch the specific application details using the ID
+    fetch(`http://localhost:5001/applications/${id}`)
+      .then(response => response.json())
+      .then(data => setApplication(data))
+      .catch(err => setError('Error fetching application.'));
+  }, [id]);
+
+  const handleChange = (e) => {
+    setApplication({
+      ...application,
+      [e.target.name]: e.target.value
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const updatedApplication = {
-      ...application,
-      name,
-      email,
-      education: education.substring(0, 50),
-      workExperience: workExperience.substring(0, 200),
-      dateOfBirth
-    };
-
-    fetch(`http://localhost:5001/applications/${applicationId}`, {
+    // Send updated application to the backend
+    fetch(`http://localhost:5001/applications/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(updatedApplication)
+      body: JSON.stringify(application)
     })
-      .then((response) => response.json())
-      .then(() => {
-        setMessage('Application updated successfully!');
-        navigate('/applications'); // Redirect to the list of applications or another appropriate page
-      })
-      .catch(() => setMessage('Error updating the application'));
+      .then(response => response.json())
+      .then(() => navigate('/profile'))
+      .catch(err => setError('Error updating application.'));
   };
-
-  if (!application) {
-    return <p>Loading...</p>;
-  }
 
   return (
     <div>
       <h2>Edit Application</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name:</label>
-        <input
-          type="text"
-          id="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-        <br />
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <br />
-        <label htmlFor="education">Education:</label>
-        <input
-          type="text"
-          id="education"
-          value={education}
-          onChange={(e) => setEducation(e.target.value)}
-          maxLength="50"
-          required
-        />
-        <br />
-        <label htmlFor="workExperience">Work Experience:</label>
-        <textarea
-          id="workExperience"
-          value={workExperience}
-          onChange={(e) => setWorkExperience(e.target.value)}
-          maxLength="200"
-          required
-        />
-        <br />
-        <label htmlFor="dateOfBirth">Date of Birth:</label>
-        <input
-          type="date"
-          id="dateOfBirth"
-          value={dateOfBirth}
-          onChange={(e) => setDateOfBirth(e.target.value)}
-          required
-        />
-        <br />
-        <button type="submit">Update Application</button>
-      </form>
-      {message && <p>{message}</p>}
+      {error && <p className="error-message">{error}</p>}
+      {application ? (
+        <form onSubmit={handleSubmit}>
+          <label>
+            Job ID:
+            <input
+              type="text"
+              name="jobId"
+              value={application.jobId}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Status:
+            <input
+              type="text"
+              name="status"
+              value={application.status}
+              onChange={handleChange}
+            />
+          </label>
+          <button type="submit">Update Application</button>
+        </form>
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
   );
-};
+}
 
 export default EditApplication;

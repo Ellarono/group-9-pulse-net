@@ -1,31 +1,30 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import Navbar from './components/Navbar';
 import Home from './components/Home';
 import JobListings from './components/JobListings';
-import Apply from './components/Apply';
-
+import Profile from './components/Profile';
+import Apply from './components/Apply'; 
+import LoginPage from './components/LoginPage'; 
+import SignupPage from './components/SignupPage'; 
 import EditApplication from './components/EditApplication';
 import ApplicationsList from './components/ApplicationsList';
+import { isAuthenticated } from './utils/auth';
 
 const App = () => {
   return (
     <Router>
       <div>
-        <nav>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/job-listings">Job Listings</a></li>
-            <li><a href="/apply">Apply for Jobs</a></li>
-            <li><a href="/add-job">Add Job</a></li>
-            <li><a href="/applications">My Applications</a></li> {/* Link to view applications */}
-          </ul>
-        </nav>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/job-listings" element={<JobListings />} />
+          <Route path="/profile" element={isAuthenticated() ? <Profile /> : <Navigate to="/login" />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
           <Route path="/apply" element={<Apply />} />
-          <Route path="/applications" element={<ApplicationsList />} /> {/* Route to view applications */}
-          <Route path="/applications/edit/:applicationId" element={<EditApplication />} /> {/* Route to edit application */}
+          <Route path="/applications" element={<ApplicationsList />} />
+          <Route path="/applications/edit/:applicationId" element={<EditApplication />} />
         </Routes>
       </div>
     </Router>
