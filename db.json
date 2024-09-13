@@ -1,34 +1,113 @@
 {
-    "joblistings":[
-        {
-            "id":1,
-            "Title":"Software Engineer",
-            "description":"Develop and maintain software Apllictions",
-            "requirement":"Valid certification as a software Engineer"
-        },
-        {
-            "id":2,
-            "Title":"Security guard",
-            "description":"Provide security for people and property within the building",
-            "requirement":"KCSE certificate"
-        },
-        {
-            "id":3,
-            "Title":"Lawyer",
-            "description":"Provide legal advice on the running of the company",
-            "requirement":"Law degree"
-        },
-        {
-            "id":4,
-            "Title":"Software Engineer",
-            "description":"Develop and maintain software Apllictions",
-            "requirement":"Valid certification as a software Engineer"
-        },
-        {
-            "id":5,
-            "Title":"Software Engineer",
-            "description":"Develop and maintain software Apllictions",
-            "requirement":"Valid certification as a software Engineer"
-        }
-    ]
+  "jobs": [
+    {
+      "id": "1",
+      "title": "IT Intern",
+      "department": "Information Technology",
+      "company": "TechCorp",
+      "location": "Remote",
+      "description": "Assist the IT team in maintaining and developing technical solutions. Basic programming skills required.",
+      "type": "Internship"
+    },
+    {
+      "id": "2",
+      "title": "Marketing Intern",
+      "department": "Marketing",
+      "company": "MarketHub",
+      "location": "Remote",
+      "description": "Work with the marketing team to develop digital campaigns. Knowledge of social media and SEO is a plus.",
+      "type": "Internship"
+    },
+    {
+      "id": "3",
+      "title": "HR Intern",
+      "department": "Human Resources",
+      "company": "PeopleFirst",
+      "location": "Remote",
+      "description": "Assist the HR department with recruitment and employee relations. Basic knowledge of HR tools and processes preferred.",
+      "type": "Internship"
+    },
+    {
+      "id": "4",
+      "title": "Finance Intern",
+      "department": "Finance",
+      "company": "FinCorp",
+      "location": "Remote",
+      "description": "Support the finance team in budgeting, forecasting, and financial reporting. Basic knowledge of financial tools and accounting software is required.",
+      "type": "Internship"
+    },
+    {
+      "id": "5",
+      "title": "Accounts Intern",
+      "department": "Accounts",
+      "company": "AccountMasters",
+      "location": "Remote",
+      "description": "Assist with daily accounting operations, bookkeeping, and financial record maintenance.",
+      "type": "Internship"
+    },
+    {
+      "id": "6",
+      "title": "Legal Intern",
+      "department": "Legal",
+      "company": "LawWorks",
+      "location": "Remote",
+      "description": "Assist the legal team with research, case preparation, and document drafting.",
+      "type": "Internship"
+    }
+  ],
+  "applications": [
+    {
+      "id": "1",
+      "userId": 1,
+      "jobId": 1,
+      "name": "Daniella Rono",
+      "email": "daniellarono@gmail.com",
+      "education": "Bachelor's in Computer Science",
+      "workExperience": "Interned at TechCompany for 6 months.",
+      "dateOfBirth": "2000-01-01",
+      "status": "submitted"
+    },
+    {
+      "id": "a22b",
+      "name": "Sandra",
+      "email": "daniellarono@gmail.com",
+      "education": "High School",
+      "workExperience": "15 years",
+      "dateOfBirth": "2222-02-02",
+      "jobId": "1",
+      "status": "submitted"
+    }
+  ],
+  "joblistings": [
+    {
+      "id": "1",
+      "Title": "Software Engineer",
+      "description": "Develop and maintain software Apllictions",
+      "requirement": "Valid certification as a software Engineer"
+    },
+    {
+      "id": "2",
+      "Title": "Security guard",
+      "description": "Provide security for people and property within the building",
+      "requirement": "KCSE certificate"
+    },
+    {
+      "id": "3",
+      "Title": "Lawyer",
+      "description": "Provide legal advice on the running of the company",
+      "requirement": "Law degree"
+    },
+    {
+      "id": "4",
+      "Title": "Software Engineer",
+      "description": "Develop and maintain software Apllictions",
+      "requirement": "Valid certification as a software Engineer"
+    },
+    {
+      "id": "5",
+      "Title": "Software Engineer",
+      "description": "Develop and maintain software Apllictions",
+      "requirement": "Valid certification as a software Engineer"
+    }
+  ]
 }
